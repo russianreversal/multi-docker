@@ -10,14 +10,14 @@ script:
 
 after_success:
     - docker build -t russianreversal/multi-client ./client
-   # - docker build -t russianreversal/multi-nginx ./nginx
-   # - docker build -t russianreversal/multi-server ./server
-   # - docker build -t russianreversal/multi-worker ./worker
+    - docker build -t russianreversal/multi-nginx ./nginx
+    - docker build -t russianreversal/multi-server ./server
+    - docker build -t russianreversal/multi-worker ./worker
     
     # Log in to the docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # Take them to Dockerhub
     - docker push russianreversal/multi-client
-   # - docker push russianreversal/multi-nginx
-   # - docker push russianreversal/multi-server
-   # - docker push russianreversal/multi-worker
+    - docker push russianreversal/multi-nginx
+    - docker push russianreversal/multi-server
+    - docker push russianreversal/multi-worker
