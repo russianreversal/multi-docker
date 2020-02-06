@@ -8,7 +8,7 @@ before_install:
 script:
     - docker run -e CI=true russianreversal/react-test npm test
 
-after_succes:
+after_success:
     - docker build -t russianreversal/multi-client ./client
     - docker build -t russianreversal/multi-nginx ./nginx
     - docker build -t russianreversal/multi-server ./server
